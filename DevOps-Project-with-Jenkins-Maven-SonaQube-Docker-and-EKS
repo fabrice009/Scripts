@@ -148,7 +148,7 @@ $ eksctl version
 ## Setup Kubernetes using eksctl
 Refer--https://github.com/aws-samples/eks-workshop/issues/734
 $ eksctl create cluster --name virtualtechbox-cluster \
---region ap-south-1 \
+--region us-east-1 \
 --node-type t2.small \
 --nodes 3 \
 
@@ -176,12 +176,11 @@ $ kubectl get nodes
 
 7 ) Get pasword and decode it.
     $ kubectl get secret argocd-initial-admin-secret -n argocd -o yaml
-    $ echo WXVpLUg2LWxoWjRkSHFmSA== | base64 --decode
+    $ echo d0NpNkV3NU5BZTVsSkdDTw== | base64 --decode
 
 ## Add EKS Cluster to ArgoCD
 9 ) login to ArgoCD from CLI
-    $ argocd login a2255bb2bb33f438d9addf8840d294c5-785887595.ap-south-1.elb.amazonaws.com --username admin
-
+     $ argocd login ac51f8b2a484b48d9bea5584b59e3df6-773418705.us-east-1.elb.amazonaws.com --username admin
 10 ) 
      $ argocd cluster list
 
@@ -189,6 +188,6 @@ $ kubectl get nodes
      $ kubectl config get-contexts
 
 12 ) Add above EKS cluster to ArgoCD with below command
-     $ argocd cluster add i-08b9d0ff0409f48e7@virtualtechbox-cluster.ap-south-1.eksctl.io --name virtualtechbox-eks-cluster
+     $ argocd cluster add i-066ff9b479504b2ad@virtualtechbox-cluster.us-east-1.eksctl.io --name virtualtechbox-eks-cluster
 
 13 ) $ kubectl get svc
